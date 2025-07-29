@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayondo Wood and Furniture Ltd - Professional Wood & Furniture Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MWF Ltd</h2>
+                <span>Wood & Furniture</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#inventory" class="nav-link">Inventory</a></li>
+                <li><a href="#sales" class="nav-link">Sales</a></li>
+                <li><a href="#reports" class="nav-link">Reports</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Mayondo Wood & Furniture Ltd</h1>
+            <p class="hero-subtitle">Premium B2B Wood Products & Custom Furniture Solutions</p>
+            <p class="hero-description">
+                Sourcing quality timber, poles, hardwood and softwood from trusted up-country suppliers. 
+                Serving construction companies and furniture dealers with excellence since establishment.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="showSection('products')">View Products</button>
+                <button class="btn btn-secondary" onclick="showSection('contact')">Get Quote</button>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>8+</h3>
+                <p>Dedicated Staff</p>
+            </div>
+            <div class="stat">
+                <h3>100+</h3>
+                <p>B2B Clients</p>
+            </div>
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Operations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Product Range</h2>
+            <div class="products-grid">
+                <div class="product-category">
+                    <h3>Raw Wood Materials</h3>
+                    <ul>
+                        <li>Premium Timber</li>
+                        <li>Construction Poles</li>
+                        <li>Hardwood Varieties</li>
+                        <li>Softwood Options</li>
+                    </ul>
+                </div>
+                <div class="product-category">
+                    <h3>Custom Furniture</h3>
+                    <ul>
+                        <li>Beds & Bedroom Sets</li>
+                        <li>Sofas & Living Room</li>
+                        <li>Dining Tables & Chairs</li>
+                        <li>Cupboards & Storage</li>
+                        <li>Office Furniture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inventory Management -->
+    <section id="inventory" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Inventory Management</h2>
+            <div class="inventory-controls">
+                <button class="btn btn-primary" onclick="showAddStock()">Add New Stock</button>
+                <button class="btn btn-secondary" onclick="showStockReport()">View Stock Report</button>
+            </div>
+            
+            <div id="add-stock-form" class="form-container" style="display: none;">
+                <h3>Add New Stock Item</h3>
+                <form class="stock-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Product Type</label>
+                            <select required>
+                                <option value="">Select Type</option>
+                                <option value="timber">Timber</option>
+                                <option value="poles">Poles</option>
+                                <option value="hardwood">Hardwood</option>
+                                <option value="softwood">Softwood</option>
+                                <option value="furniture">Furniture</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Cost Price (UGX)</label>
+                            <input type="number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Selling Price (UGX)</label>
+                            <input type="number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input type="number" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Supplier Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Quality Grade</label>
+                            <select>
+                                <option value="premium">Premium</option>
+                                <option value="standard">Standard</option>
+                                <option value="economy">Economy</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Color (Optional)</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>Measurements (Optional)</label>
+                            <input type="text" placeholder="e.g., 2m x 4m x 6cm">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add to Inventory</button>
+                </form>
+            </div>
+
+            <div id="stock-table" class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Cost Price</th>
+                            <th>Selling Price</th>
+                            <th>Supplier</th>
+                            <th>Quality</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mahogany Timber</td>
+                            <td>Hardwood</td>
+                            <td>50 pieces</td>
+                            <td>UGX 45,000</td>
+                            <td>UGX 65,000</td>
+                            <td>Kampala Suppliers</td>
+                            <td>Premium</td>
+                            <td>
+                                <button class="btn-small btn-edit">Edit</button>
+                                <button class="btn-small btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Office Desk</td>
+                            <td>Furniture</td>
+                            <td>12 units</td>
+                            <td>UGX 180,000</td>
+                            <td>UGX 280,000</td>
+                            <td>MWF Workshop</td>
+                            <td>Premium</td>
+                            <td>
+                                <button class="btn-small btn-edit">Edit</button>
+                                <button class="btn-small btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales Management -->
+    <section id="sales" class="section">
+        <div class="container">
+            <h2 class="section-title">Sales Management</h2>
+            <div class="sales-controls">
+                <button class="btn btn-primary" onclick="showNewSale()">Record New Sale</button>
+                <button class="btn btn-secondary" onclick="showSalesReport()">Sales Report</button>
+            </div>
+
+            <div id="new-sale-form" class="form-container" style="display: none;">
+                <h3>Record New Sale</h3>
+                <form class="sales-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Customer Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Product Type</label>
+                            <select required>
+                                <option value="">Select Type</option>
+                                <option value="timber">Timber</option>
+                                <option value="poles">Poles</option>
+                                <option value="hardwood">Hardwood</option>
+                                <option value="softwood">Softwood</option>
+                                <option value="furniture">Furniture</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input type="number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Unit Price (UGX)</label>
+                            <input type="number" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Payment Method</label>
+                            <select required>
+                                <option value="">Select Method</option>
+                                <option value="cash">Cash</option>
+                                <option value="cheque">Cheque</option>
+                                <option value="bank_overdraft">Bank Overdraft</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Sales Agent</label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Transport Required?</label>
+                            <select id="transport-select" onchange="calculateTotal()">
+                                <option value="no">No</option>
+                                <option value="yes">Yes (+5% charge)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Total Amount (UGX)</label>
+                            <input type="number" id="total-amount" readonly>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Record Sale & Generate Receipt</button>
+                </form>
+            </div>
+
+            <div id="sales-table" class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>Payment</th>
+                            <th>Agent</th>
+                            <th>Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-01-15</td>
+                            <td>ABC Construction</td>
+                            <td>Mahogany Timber</td>
+                            <td>25 pieces</td>
+                            <td>UGX 1,625,000</td>
+                            <td>Bank Transfer</td>
+                            <td>John Mukasa</td>
+                            <td><button class="btn-small btn-primary">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>2024-01-14</td>
+                            <td>Modern Furniture Ltd</td>
+                            <td>Office Desk</td>
+                            <td>5 units</td>
+                            <td>UGX 1,470,000</td>
+                            <td>Cash</td>
+                            <td>Sarah Nambi</td>
+                            <td><button class="btn-small btn-primary">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section id="reports" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Business Reports</h2>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Sales Report</h3>
+                    <p>Comprehensive sales analysis and performance metrics</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+                <div class="report-card">
+                    <h3>Stock Report</h3>
+                    <p>Current inventory levels and stock valuation</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+                <div class="report-card">
+                    <h3>Financial Summary</h3>
+                    <p>Revenue, costs, and profit analysis</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Ready to discuss your wood and furniture needs? Contact our team today.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Showroom & Office</strong>
+                            <p>Kampala Industrial Area, Uganda</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Warehouse</strong>
+                            <p>Adjacent to main showroom facility</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Business Hours</strong>
+                            <p>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Request Quote</h3>
+                    <form>
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Person</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Product Interest</label>
+                            <select required>
+                                <option value="">Select Category</option>
+                                <option value="timber">Timber</option>
+                                <option value="poles">Poles</option>
+                                <option value="hardwood">Hardwood</option>
+                                <option value="softwood">Softwood</option>
+                                <option value="furniture">Custom Furniture</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MWF Ltd</h3>
+                    <p>Your trusted partner for premium wood products and custom furniture solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>B2B Wood Supply</li>
+                        <li>Custom Furniture</li>
+                        <li>Bulk Orders</li>
+                        <li>Transport Services</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li>Timber & Poles</li>
+                        <li>Hardwood & Softwood</li>
+                        <li>Office Furniture</li>
+                        <li>Home Furniture</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mayondo Wood and Furniture Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
